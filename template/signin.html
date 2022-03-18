@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Login Form</title>
+        <link rel="stylesheet" type="text/css" href="css/style_signin.css">
+    </head>
+    <body>
+        <h3>Login Page</h3>
+        <br>
+        <form action = "/signin" method ="post">
+        {% csrf_token %}
+            <label><b>User Name</b></label>
+            <input type = "text" id="username" name="username" placeholder="Enter your username" Required></input type>
+            <br><br>
+            <label><b>Password</b></label>
+            <input type = "password" id="pass1" name="pass1" placeholder="Enter your password" Required></input type>
+            <br><br>
+              
+            
+            <button type="submit">signin</button_type>
+        </form>
+
+        <script async= "" defer></script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <h1>Welcome To Instapic</h1>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+        {% block content %}
+        <form action ="home" method = "get"></form>
+        <div class="landscape">
+            <table class="table table-striped">
+                <thead>
+                </thead>
+                <tbody>
+                    {% for posts in web_post %}
+                    <tr>
+                        <td>{{posts.user}}</td>
+                    </tr>
+                    <tr>
+                        <td><image src="{{posts.file}}" alt ="connect" width="200" height="200"></image></td>
+                    </tr>
+                    <tr>
+                        <td>{{posts.description}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endblock %}
+
+        <br>
+        
+        <br>
+        <form enctype= "multipart/form-data" action = "" method ="post">
+            {% csrf_token %}
+            <hr><br><br>
+            <p align="right">
+            <!-- <label for="img">Choose File</label> -->
+            <input type = "file" name="img" id="img"/>
+            <br><br>
+            <input type = "text" name="caption" id="caption"></p>
+            <div class="btn-block">
+                <p align="right">
+                    <button type ="submit"><form action ="home" method = "post"></form>Submit</button> 
+                </p>
+            </div>
+        </form>
+        <p align="right">
+        <button type ="submit"><a href="/signout" >Sign out</button>
+        </p>
+
+        {% else %}
+        <h3><b><center>Image Sharing</center></b></h3>
+        
+        <button type="submit"><a href="/signup"> Sign Up</a></button>
+        <br><br>
+        <button type="submit"><a href="signin">Sign In</a></button>
+        {% endif %}
+        <br>
+        <script src =""async defer></script>
+
+    </body>
+</html>

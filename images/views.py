@@ -37,7 +37,6 @@ def signup(request):
 
 
 def signin(request):
-    print("In signin method")
     if request.method == "POST":
         username = request.POST.get('username')
         pass1 = request.POST.get('pass1')
@@ -78,15 +77,6 @@ def home(request):
             org_file= posts.file
             posts.file= "../media/"+str(org_file)
         return render(request,'home.html',{'web_post':web_post})
-
-def addfile(request):
-    if request.method == "POST":
-        new_image = Image()
-        new_image.file = request.FILES.get('img')
-        new_image.description=request.get['caption']
-        new_image.user=request.user
-        new_image.save()
-        return render(request,'home.html',{'new_image':new_image})
         
 
         

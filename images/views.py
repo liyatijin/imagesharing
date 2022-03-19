@@ -72,7 +72,8 @@ def home(request):
         return redirect('home')
    
     else:
-        web_post = Image.objects.all()
+        ordering = ['-id']
+        web_post = Image.objects.order_by('-id')
         for posts in web_post:
             org_file= posts.file
             posts.file= "../media/"+str(org_file)

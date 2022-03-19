@@ -24,7 +24,7 @@ def signup(request):
             email = request.POST.get('email')
             pass1 = request.POST.get('pass1')
             pass2 = request.POST.get('pass2')
-            if ((pass1 == pass2) and (' ' in pass1 == False)):
+            if pass1==pass2:
                 myuser = User.objects.create_user(username=username,first_name=fname,last_name=lname,email=email,password=pass1)
                 myuser.save()
                 messages.success(request,"Your account has been successfully created")

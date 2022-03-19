@@ -7,6 +7,7 @@ class Image(models.Model):
     description = models.TextField(blank=True,null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     time=models.DateTimeField(auto_now_add=True)
+    id = models.AutoField(auto_created=True, primary_key=True,serialize=False,verbose_name='ID')
 
 
     

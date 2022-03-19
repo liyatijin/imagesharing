@@ -1,6 +1,6 @@
 <html>
     <head>
-        <h1>Welcome To Instapic</h1>
+        <h1><center>Welcome To Instapic</center></h1>
     </head>
     <body>
         {% if user.is_authenticated %}
@@ -13,13 +13,13 @@
                 <tbody>
                     {% for posts in web_post %}
                     <tr>
-                        <td>{{posts.user}}</td>
+                        <td><b>{{posts.user}}</b></td>
                     </tr>
                     <tr>
                         <td><image src="{{posts.file}}" alt ="connect" width="200" height="200"></image></td>
                     </tr>
                     <tr>
-                        <td>{{posts.description}}</td>
+                        <td><center>{{posts.description}}</center></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -34,7 +34,6 @@
             {% csrf_token %}
             <hr><br><br>
             <p align="right">
-            <!-- <label for="img">Choose File</label> -->
             <input type = "file" name="img" id="img"/>
             <br><br>
             <input type = "text" name="caption" id="caption"></p>
